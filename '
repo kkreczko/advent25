@@ -1,0 +1,31 @@
+#include <fstream>
+#include <iostream>
+
+int main() {
+  char direction;
+  int numba;
+  int res = 0;
+  int res_final_final_main = 0;
+
+  std::fstream file("./first/input_test.txt");
+
+  while (file >> direction >> numba) {
+    res = res >= 0 ? res % 100 : 100 - res % 100;
+
+    if (res == 0)
+      res_final_final_main += 1;
+
+    switch (direction) {
+    case 'L':
+      res -= numba;
+    case 'R':
+      res += numba;
+    default:
+      break;
+    }
+  }
+
+  std::cout << res_final_final_main << '\n';
+
+  return 0;
+}
